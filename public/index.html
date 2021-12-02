@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="/css/index.css">
     <meta charset="utf-8">
-    <title></title>
+    <title>Chat APP</title>
   </head>
   <body>
+    <div class='chat-container'>
+      <div class='chat-sidebar'>
+        <div class='chat-sidebar-container' id='sidebarInfo' > </div>
+      </div>
+      <div class='chat-content-container'>
+        <div class='chat-message-list' id='receivedMessage'> </div>
+        <div class='chat-form-wrapper'>
+          <input placeholder="Mesaj" id="message"> </input>
+          <button id='send'>
+            Gonder
+          </button>
+          <button id='sendLocation'>
+            Konum Gonder
+          </button>
+        </div>
+      </div>
+    </div>
 
-    CHAT APP
+    <script id='receivedMessageTemplate' type='text/html'>
+      <div class='message-wrapper'>
+        <div class='message-info-wrapper'>
+          <div class='message-name'> {{username}} </div>
+          <div class='message-date'> {{createdAt}} </div>
+        </div>
+        <div class='message-content'>
+          {{#if url}}
+            <a href='{{url}}' target='_blank'> Yeni konum bilgisi. </a>
+          {{else}}
+            {{message}}
+          {{/if}}
+        <div>
+      </div>
+    </script>
 
+    <script id='sidebarInfoTemplate' type='text/html'>
+      <div class='sidebar-channel-name'> {{channel}} </div>
+      <div class='sidebar-user-list-container'>
+        {{#each users}}
+          <div class='sidebar-user'> {{username}} </div>
+        {{/each}}
+      </div>
+    </script>
 
-<div>
-<input type="text" placeholder="mesaj" id=mesaj>
-<button id=send>Gönder</button>
-<button id=sendLocation>Konum Gönder</button>
-</div>
-
-
-<div id="receivedMessage">  </div>
-
-<script id=receivedMessageTemplate type="texxt/html">
-
-<div>
-{{#if url}}
-<a href ='{{url}}' target='_blank'> Yeni konum bilgisi.</a>
-{{else}}
-{{message}}
-{{/if}}
-</div>
-
-
-</script>
-
-
-<script src="/socket.io/socket.io.js" charset="utf-8"></script>
-<script src="/js/client.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" charset="utf-8"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.8.0/qs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <script src="/socket.io/socket.io.js" > </script>
+    <script src="/js/client.js" > </script>
+  </body>
 </html>

@@ -9,6 +9,10 @@ const receivedMessage = document.querySelector('#receivedMessage');
 //templates
 const receivedMessageTemplate = document.querySelector('#receivedMessageTemplate').innerHTML;
 
+const { username, channel } = Qs.parse(location.search, {ignoreQueryPrefix: true});
+
+socket.emit('join',{ username, channel });
+
 sendMessageButton.addEventListener('click', ()=>{
 
 sendMessageButton.setAttribute('disabled','disabled');
@@ -28,10 +32,12 @@ socket.emit('sendMessage', messageText,(isDelivered)=>{
   });
 });
 
-socket.on('receivedMessage',(message)=>{
+socket.on('receivedMessage',(messageObj)=>{
+  const { message, createdAt } = messageObj;
   const template = Handlebars.compile(receivedMessageTemplate);
   receivedMessage.insertAdjacentHTML("beforebegin", template({
-    message
+    message,
+    createdAt: moment().format('HH:mm')
   }));
 });
 

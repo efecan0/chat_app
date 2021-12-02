@@ -1,0 +1,131 @@
+/* Genel tanimlar */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: Helvetica;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid #eeeeee;
+  color: gray;
+}
+
+button {
+  background: #88eae6;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background: #99efd5;
+}
+
+button:disabled {
+  background: #88eae694;
+  cursor: default;
+}
+
+/* Chat container icerigi */
+
+.chat-container {
+  display: flex;
+}
+
+.chat-sidebar {
+  height: 100vh;
+  background: #5c8789;
+  width: 200px;
+}
+
+.chat-content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 0 20px;
+  max-height: 95vh;
+}
+
+.chat-message-list {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.chat-form-wrapper {
+  margin-top: 10px;
+  padding: 18px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-form-wrapper input {
+  flex: 8;
+  margin-right: 16px;
+}
+
+.chat-form-wrapper button {
+  flex: 1;
+  margin-right: 16px;
+}
+
+/* Mesaj alanlari */
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-top: 3px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.message-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.message-name {
+  font-size: 14px;
+}
+
+.message-date {
+  color: #777;
+  font-size: 14px;
+}
+
+.message-content {
+  font-size: 18px;
+}
+
+.chat-sidebar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-channel-name {
+  height: 130px;
+  font-size: 34px;
+  color: darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-user-list-container {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-user {
+  font-size: 20px;
+  color: white;
+}
