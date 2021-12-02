@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    CHAT APP
+
+
+<div>
+<input type="text" placeholder="mesaj" id=mesaj>
+<button id=send>Gönder</button>
+<button id=sendLocation>Konum Gönder</button>
+</div>
+
+
+<div id="receivedMessage">  </div>
+
+<script id=receivedMessageTemplate type="texxt/html">
+
+<div>
+{{#if url}}
+<a href ='{{url}}' target='_blank'> Yeni konum bilgisi.</a>
+{{else}}
+{{message}}
+{{/if}}
+</div>
+
+
+</script>
+
+
+<script src="/socket.io/socket.io.js" charset="utf-8"></script>
+<script src="/js/client.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" charset="utf-8"></script>
+</body>
+</html>
